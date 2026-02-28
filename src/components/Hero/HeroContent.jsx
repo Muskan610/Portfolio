@@ -1,12 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MagneticButton from '../shared/MagneticButton';
 
 const HeroContent = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isInView, setIsInView] = useState(true);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     // Trigger animation on mount
     setTimeout(() => setIsVisible(true), 100);
+
+    // IntersectionObserver to pause animations when out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) {
+        observer.unobserve(contentRef.current);
+      }
+    };
   }, []);
 
   const scrollToSection = (id) => {
@@ -17,7 +37,7 @@ const HeroContent = () => {
   };
 
   return (
-    <div className="relative z-10 text-center px-4">
+    <div ref={contentRef} className="relative z-10 text-center px-4">
       {/* Title with stagger animation and creative typography */}
       <h1 className="font-display mb-6 overflow-visible py-6 pb-8">
         <span
@@ -34,7 +54,7 @@ const HeroContent = () => {
           Premium Design
         </span>
         <span
-          className={`block text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-pink-500 via-accent to-primary-500 bg-clip-text text-transparent bg-200% animate-gradient-shift transition-all duration-1000 leading-tight ${
+          className={`block text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-pink-500 via-accent to-primary-500 bg-clip-text text-transparent bg-200% ${isInView ? 'animate-gradient-shift' : ''} transition-all duration-1000 leading-tight ${
             isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-8'

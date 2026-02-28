@@ -1,42 +1,41 @@
 import { useState, useEffect, useRef } from 'react';
+import { useMouseContext } from '../contexts/MousePositionContext';
 
 export const useHeroMousePosition = (heroRef) => {
   const [position, setPosition] = useState(null);
-  const rafId = useRef(null);
+  const { mousePosition, isTouchDevice } = useMouseContext();
   const isHovering = useRef(false);
-  const lastMousePosition = useRef({ x: 0, y: 0 });
+  const cachedRect = useRef(null);
+  const [rectVersion, setRectVersion] = useState(0);
 
+  // Cache rect on mount and update on resize/scroll
   useEffect(() => {
-    // Touch device check - disable on mobile
-    const hasTouch = 'ontouchstart' in window;
-    if (hasTouch) return;
+    if (isTouchDevice || !heroRef.current) return;
 
-    const updatePosition = () => {
-      if (!heroRef.current || !isHovering.current) return;
-
-      const rect = heroRef.current.getBoundingClientRect();
-      const x = lastMousePosition.current.x - rect.left;
-      const y = lastMousePosition.current.y - rect.top;
-
-      // Use requestAnimationFrame for smooth 60fps updates
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-      rafId.current = requestAnimationFrame(() => {
-        setPosition({ x, y });
-      });
+    const updateRect = () => {
+      if (heroRef.current) {
+        cachedRect.current = heroRef.current.getBoundingClientRect();
+        // Trigger recalculation by updating version
+        setRectVersion(v => v + 1);
+      }
     };
 
-    const handleMouseMove = (e) => {
-      lastMousePosition.current = {
-        x: e.clientX,
-        y: e.clientY
-      };
-      updatePosition();
-    };
+    // Initial calculation
+    updateRect();
 
-    const handleScroll = () => {
-      // Update position on scroll to keep spotlight aligned
-      updatePosition();
+    // Update on resize and scroll
+    window.addEventListener('resize', updateRect);
+    window.addEventListener('scroll', updateRect, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', updateRect);
+      window.removeEventListener('scroll', updateRect);
     };
+  }, [heroRef, isTouchDevice]);
+
+  // Handle mouse enter/leave
+  useEffect(() => {
+    if (isTouchDevice || !heroRef.current) return;
 
     const handleMouseEnter = () => {
       isHovering.current = true;
@@ -48,23 +47,26 @@ export const useHeroMousePosition = (heroRef) => {
     };
 
     const hero = heroRef.current;
-    if (hero) {
-      hero.addEventListener('mouseenter', handleMouseEnter);
-      hero.addEventListener('mouseleave', handleMouseLeave);
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    }
+    hero.addEventListener('mouseenter', handleMouseEnter);
+    hero.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      if (hero) {
-        hero.removeEventListener('mouseenter', handleMouseEnter);
-        hero.removeEventListener('mouseleave', handleMouseLeave);
-      }
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
+      hero.removeEventListener('mouseenter', handleMouseEnter);
+      hero.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [heroRef]);
+  }, [heroRef, isTouchDevice]);
+
+  // Update position when mouse moves or rect changes
+  useEffect(() => {
+    if (isTouchDevice || !mousePosition || !isHovering.current || !cachedRect.current) {
+      return;
+    }
+
+    const x = mousePosition.x - cachedRect.current.left;
+    const y = mousePosition.y - cachedRect.current.top;
+
+    setPosition({ x, y });
+  }, [mousePosition, isTouchDevice, rectVersion]);
 
   return position;
 };

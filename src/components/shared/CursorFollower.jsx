@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useMousePosition } from '../../hooks/useMousePosition';
 
 const CursorFollower = () => {
@@ -31,4 +32,4 @@ const CursorFollower = () => {
   );
 };
 
-export default CursorFollower;
+export default memo(CursorFollower);

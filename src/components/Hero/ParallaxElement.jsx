@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useParallax } from '../../hooks/useParallax';
 
@@ -30,4 +31,4 @@ ParallaxElement.propTypes = {
   className: PropTypes.string,
 };
 
-export default ParallaxElement;
+export default memo(ParallaxElement);

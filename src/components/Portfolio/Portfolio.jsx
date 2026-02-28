@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import Section from '../shared/Section';
 import PortfolioCard from './PortfolioCard';
-import ProjectDetail from './ProjectDetail';
 import { portfolioItems } from '../../data/portfolio';
+
+// Lazy load ProjectDetail component
+const ProjectDetail = lazy(() => import('./ProjectDetail'));
 
 const Portfolio = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -11,8 +13,9 @@ const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
 
-  // Prevent scroll when loading and compensate for scrollbar
+  // Consolidated scroll and popstate effect
   useEffect(() => {
+    // Prevent scroll when loading and compensate for scrollbar
     if (showLoading || selectedProject) {
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = 'hidden';
@@ -23,20 +26,20 @@ const Portfolio = () => {
       document.body.style.overflow = 'unset';
       document.body.style.paddingRight = '';
     }
-  }, [showLoading, selectedProject]);
 
-  // Handle browser back button
-  useEffect(() => {
+    // Handle browser back button
     const handlePopState = () => {
       setSelectedProject(null);
     };
 
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [showLoading, selectedProject]);
 
   // Open project and push history state
-  const handleOpenProject = (project) => {
+  const handleOpenProject = useCallback((project) => {
     // Immediately show loading screen with full opacity
     setShowLoading(true);
     setIsLoading(true);
@@ -56,16 +59,16 @@ const Portfolio = () => {
     setTimeout(() => {
       setShowLoading(false);
     }, 1700);
-  };
+  }, []);
 
   // Close project and handle history
-  const handleCloseProject = () => {
+  const handleCloseProject = useCallback(() => {
     if (window.location.hash.startsWith('#project-')) {
       window.history.back();
     } else {
       setSelectedProject(null);
     }
-  };
+  }, []);
 
   return (
     <>
@@ -126,14 +129,14 @@ const Portfolio = () => {
       {showLoading && (
         <div
           className={`fixed inset-0 z-[60] flex items-center justify-center transition-all duration-500 ease-in-out ${
-            isLoading ? 'opacity-100 backdrop-blur-md' : 'opacity-0 backdrop-blur-none'
+            isLoading ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
             background: isLoading
-              ? 'radial-gradient(circle at center, rgba(250, 245, 240, 0.95) 0%, rgba(250, 245, 240, 0.98) 50%, rgba(250, 245, 240, 1) 100%)'
-              : 'transparent',
-            willChange: 'opacity, backdrop-filter, background',
-            transition: 'opacity 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out, background 0.5s ease-in-out'
+              ? 'rgba(250, 245, 240, 0.98)'
+              : 'rgba(250, 245, 240, 0)',
+            willChange: 'opacity, background',
+            transition: 'opacity 0.5s ease-in-out, background 0.5s ease-in-out'
           }}
         >
           <div
@@ -169,10 +172,12 @@ const Portfolio = () => {
 
       {/* Project Detail Modal */}
       {selectedProject && (
-        <ProjectDetail
-          project={selectedProject}
-          onClose={handleCloseProject}
-        />
+        <Suspense fallback={<div className="fixed inset-0 bg-cream" />}>
+          <ProjectDetail
+            project={selectedProject}
+            onClose={handleCloseProject}
+          />
+        </Suspense>
       )}
     </>
   );

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Card from '../shared/Card';
 
 const PortfolioCard = ({ title, category, description, image, onClick }) => {
@@ -63,4 +63,4 @@ PortfolioCard.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default PortfolioCard;
+export default memo(PortfolioCard);

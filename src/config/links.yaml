@@ -1,0 +1,44 @@
+# Website Links Configuration
+
+# Contact Information
+contact:
+  email: mbhat2442@gmail.com
+
+# Social Media Links
+social:
+  linkedin:
+    url: "https://www.linkedin.com/in/muskan-bhat/"
+    label: "LinkedIn"
+    icon: "linkedin"
+
+# Project URLs
+projects:
+  phd_work_life_balance:
+    url: "/projects/phd-work-life-balance"
+    title: "Dr. Check-in"
+    slug: "phd-work-life-balance"
+
+# Navigation Links (if needed in future)
+navigation:
+  - label: "Home"
+    href: "#hero"
+
+  - label: "Portfolio"
+    href: "#portfolio"
+
+  - label: "About"
+    href: "#about"
+
+  - label: "Contact"
+    href: "#contact"
+
+# External Resources (if needed)
+external:
+  # Add any external links here
+  # Example:
+  # resume_pdf: "/path/to/resume.pdf"
+  # portfolio_pdf: "/path/to/portfolio.pdf"
+
+# Footer
+footer:
+  copyright: "© 2026 Designer Portfolio. All rights reserved."

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+import PropTypes from 'prop-types';
 import { useHeroMousePosition } from '../../hooks/useHeroMousePosition';
 
 const SpotlightCursor = ({ heroRef }) => {
@@ -23,4 +25,8 @@ const SpotlightCursor = ({ heroRef }) => {
   );
 };
 
-export default SpotlightCursor;
+SpotlightCursor.propTypes = {
+  heroRef: PropTypes.object.isRequired,
+};
+
+export default memo(SpotlightCursor);
