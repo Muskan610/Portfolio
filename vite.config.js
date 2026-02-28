@@ -13,7 +13,7 @@ export default defineConfig({
   ],
 
   // GitHub Pages configuration
-  base: '/MuskanWebsite/',
+  base: '/Portfolio/',
 
   // Build optimization
   build: {

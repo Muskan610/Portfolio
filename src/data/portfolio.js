@@ -5,7 +5,7 @@ export const portfolioItems = [
     subtitle: 'Designing for PhD Work-Life Harmony',
     category: 'UX Research & Product Design',
     description: 'AI-powered check-in app supporting PhD work-life balance through voice interaction, emotional tracking, and burnout detection.',
-    image: '/MuskanWebsite/images/portfolio/main_banner.png',
+    image: '/Portfolio/images/portfolio/main_banner.png',
     tags: ['UX Research', 'AI/ML', 'Voice Interface', 'Mental Health'],
     url: '/projects/phd-work-life-balance',
 
@@ -144,31 +144,31 @@ export const portfolioItems = [
           id: 1,
           title: 'Dr. Check-in Overview',
           description: 'Complete interface design and user experience overview',
-          image: '/MuskanWebsite/images/portfolio/main_banner.png'
+          image: '/Portfolio/images/portfolio/main_banner.png'
         },
         {
           id: 2,
           title: 'Design System',
           description: 'Color palette and visual design language',
-          image: '/MuskanWebsite/images/portfolio/colour_pallette.png'
+          image: '/Portfolio/images/portfolio/colour_pallette.png'
         },
         {
           id: 3,
           title: 'User Flow',
           description: 'Interaction flow and user journey',
-          image: '/MuskanWebsite/images/portfolio/user_flow.png'
+          image: '/Portfolio/images/portfolio/user_flow.png'
         },
         {
           id: 4,
           title: 'Design Intent',
           description: 'Core design principles and user-centered approach',
-          image: '/MuskanWebsite/images/portfolio/intent.png'
+          image: '/Portfolio/images/portfolio/intent.png'
         },
         {
           id: 5,
           title: 'LLM Logic',
           description: 'AI processing and data extraction system',
-          image: '/MuskanWebsite/images/portfolio/llm_logic.png'
+          image: '/Portfolio/images/portfolio/llm_logic.png'
         }
       ],
 

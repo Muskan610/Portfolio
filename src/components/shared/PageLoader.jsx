@@ -40,8 +40,8 @@ const PageLoader = ({ onLoadComplete }) => {
 
       // Preload critical images
       const criticalImages = [
-        '/MuskanWebsite/images/portfolio/main_banner.png',
-        '/MuskanWebsite/images/portfolio/colour_pallette.png',
+        '/Portfolio/images/portfolio/main_banner.png',
+        '/Portfolio/images/portfolio/colour_pallette.png',
       ];
 
       const imagePromises = criticalImages.map(src => {
