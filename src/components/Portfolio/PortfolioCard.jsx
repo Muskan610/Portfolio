@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Card from '../shared/Card';
 
-const PortfolioCard = ({ title, category, description, image, tags, onClick }) => {
+const PortfolioCard = ({ title, category, description, image, onClick }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ const PortfolioCard = ({ title, category, description, image, tags, onClick }) =
       onClick={onClick}
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-sage-100">
+      <div className="relative aspect-[4/3] overflow-hidden bg-cream">
         {!imageLoaded && (
           <div className="absolute inset-0 flex items-center justify-center">
             <svg
@@ -33,7 +33,7 @@ const PortfolioCard = ({ title, category, description, image, tags, onClick }) =
           src={image}
           alt={title}
           loading="lazy"
-          className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+          className={`w-full h-full object-contain p-6 transition-all duration-500 group-hover:scale-105 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={() => setImageLoaded(true)}
@@ -41,7 +41,7 @@ const PortfolioCard = ({ title, category, description, image, tags, onClick }) =
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
           <span className="text-accent text-sm font-semibold mb-2">
             {category}
           </span>
@@ -49,16 +49,6 @@ const PortfolioCard = ({ title, category, description, image, tags, onClick }) =
             {title}
           </h3>
           <p className="text-gray-200 text-sm mb-3">{description}</p>
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-white/20 backdrop-blur-sm rounded text-white text-xs"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </Card>
@@ -70,7 +60,6 @@ PortfolioCard.propTypes = {
   category: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   onClick: PropTypes.func,
 };
 

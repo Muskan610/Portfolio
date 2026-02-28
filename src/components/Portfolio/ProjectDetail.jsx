@@ -53,6 +53,8 @@ const ProjectDetail = ({ project, onClose }) => {
 
   if (!project) return null;
 
+  const hasResearch = project.research;
+
   return (
     <div
       className={`fixed inset-0 z-50 overflow-y-auto bg-cream transition-opacity duration-700 ease-out ${
@@ -94,102 +96,223 @@ const ProjectDetail = ({ project, onClose }) => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent mb-6">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl">
+          {project.subtitle && (
+            <h2 className="text-3xl md:text-4xl font-display font-semibold text-gray-700 mb-6">
+              {project.subtitle}
+            </h2>
+          )}
+          <p className="text-base md:text-lg text-gray-600 max-w-5xl">
             {project.description}
           </p>
         </div>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {project.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="px-4 py-2 bg-white rounded-full text-gray-700 text-sm font-medium shadow-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {hasResearch ? (
+          <>
+            {/* Project Details Grid */}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Timeline
+                </h3>
+                <p className="text-gray-600">{project.research.timeline}</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Role
+                </h3>
+                <p className="text-gray-600">{project.research.role}</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Client
+                </h3>
+                <p className="text-gray-600">{project.research.institution}</p>
+              </div>
+            </div>
 
-        {/* Hero Image */}
-        <div className="mb-16 rounded-2xl overflow-hidden shadow-2xl">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-auto object-cover"
-          />
-        </div>
+            {/* Introduction */}
+            <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+                Introduction
+              </h2>
+              <div className="prose prose-lg max-w-none">
+                {project.research.introduction.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="text-gray-600 leading-relaxed mb-4">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
 
-        {/* Project Details Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
-              Timeline
-            </h3>
-            <p className="text-gray-600">3-4 weeks</p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
-              Role
-            </h3>
-            <p className="text-gray-600">Lead Designer</p>
-          </div>
-          <div className="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
-              Year
-            </h3>
-            <p className="text-gray-600">2026</p>
-          </div>
-        </div>
+            {/* Figures/Visualizations */}
+            {project.research.figures && project.research.figures.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+                  Research Visualizations
+                </h2>
+                <div className="space-y-12">
+                  {project.research.figures.map((figure) => (
+                    <div key={figure.id} className="bg-white p-8 rounded-2xl shadow-sm">
+                      <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
+                        {figure.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6">{figure.description}</p>
+                      <div className="rounded-xl overflow-hidden bg-gray-50 p-4">
+                        <img
+                          src={figure.image}
+                          alt={figure.title}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
-        {/* About the Project */}
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-            About the Project
-          </h2>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 leading-relaxed mb-4">
-              This project involved creating a comprehensive design solution that balanced aesthetic appeal with functional requirements. The challenge was to develop a visual identity that would resonate with the target audience while maintaining brand consistency.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Through careful research and iterative design processes, we crafted a unique approach that highlighted the brand's core values. The final deliverables included a complete visual system with typography, color palettes, and design guidelines.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              The result is a cohesive design language that elevates the brand presence and creates memorable user experiences across all touchpoints.
-            </p>
-          </div>
-        </div>
+            {/* Research Methodology */}
+            <div className="mb-16 bg-gradient-to-br from-sage-50 to-primary-50 p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+                Research Methodology
+              </h2>
+              <p className="text-lg text-gray-700 mb-6">
+                {project.research.methodology.approach}
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-xl">
+                  <h4 className="font-display font-bold text-gray-900 mb-2">Participants</h4>
+                  <p className="text-gray-600">{project.research.methodology.participants}</p>
+                </div>
+                <div className="bg-white p-6 rounded-xl">
+                  <h4 className="font-display font-bold text-gray-900 mb-2">Period</h4>
+                  <p className="text-gray-600">{project.research.methodology.period}</p>
+                </div>
+              </div>
+              <div className="mt-6 bg-white p-6 rounded-xl">
+                <h4 className="font-display font-bold text-gray-900 mb-3">Methods Used</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.research.methodology.methods.map((method, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-sage-100 text-sage-800 rounded-full text-sm font-medium"
+                    >
+                      {method}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-        {/* Mock Gallery */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div className="aspect-square bg-gradient-to-br from-primary-200 to-sage-200 rounded-2xl flex items-center justify-center">
-            <span className="text-gray-500 font-display text-lg">Additional Image 1</span>
-          </div>
-          <div className="aspect-square bg-gradient-to-br from-sage-200 to-primary-200 rounded-2xl flex items-center justify-center">
-            <span className="text-gray-500 font-display text-lg">Additional Image 2</span>
-          </div>
-        </div>
+            {/* Key Insights */}
+            <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+                Key Insights & Design Implications
+              </h2>
+              <div className="space-y-6">
+                {project.research.keyInsights.map((insight, index) => (
+                  <div key={index} className="border-l-4 border-accent pl-6 py-2">
+                    <h4 className="font-display font-bold text-lg text-gray-900 mb-2">
+                      {insight.insight}
+                    </h4>
+                    <p className="text-gray-600 mb-2">
+                      <span className="font-semibold">Implication:</span> {insight.implication}
+                    </p>
+                    <p className="text-sage-700">
+                      <span className="font-semibold">Feature:</span> {insight.feature}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        {/* Call to Action */}
-        <div className="text-center py-12 bg-white rounded-2xl shadow-sm">
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-4">
-            Interested in working together?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Let's create something amazing
-          </p>
-          <button
-            onClick={() => {
-              handleClose();
-              setTimeout(() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }, 700);
-            }}
-            className="px-10 py-5 bg-sage-600 text-white text-xl font-semibold rounded-full transition-all duration-300 hover:bg-sage-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500"
-          >
-            Get in Touch
-          </button>
-        </div>
+            {/* Usability Testing */}
+            {project.research.usabilityTesting && (
+              <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+                  Usability Testing
+                </h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  {project.research.usabilityTesting.summary}
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-display font-bold text-green-700 mb-4">
+                      What Worked Well
+                    </h3>
+                    <ul className="space-y-2">
+                      {project.research.usabilityTesting.positives.map((positive, index) => (
+                        <li key={index} className="flex items-start text-gray-700">
+                          <span className="text-green-600 mr-2 mt-1">✓</span>
+                          <span>{positive}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-display font-bold text-sage-700 mb-4">
+                      Feedback & Improvements
+                    </h3>
+                    <ul className="space-y-2">
+                      {project.research.usabilityTesting.feedback.map((item, index) => (
+                        <li key={index} className="flex items-start text-gray-700">
+                          <span className="text-sage-600 mr-2 mt-1">→</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Participant Quotes */}
+            {project.research.quotes && project.research.quotes.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+                  Voices from the Research
+                </h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {project.research.quotes.map((quote, index) => (
+                    <div
+                      key={index}
+                      className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-accent"
+                    >
+                      <p className="text-gray-700 italic leading-relaxed">
+                        {quote}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {/* Generic project layout for non-research projects */}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Timeline
+                </h3>
+                <p className="text-gray-600">3-4 weeks</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Role
+                </h3>
+                <p className="text-gray-600">Lead Designer</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
+                  Year
+                </h3>
+                <p className="text-gray-600">2026</p>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -202,7 +325,6 @@ ProjectDetail.propTypes = {
     category: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }),
   onClose: PropTypes.func.isRequired,
 };

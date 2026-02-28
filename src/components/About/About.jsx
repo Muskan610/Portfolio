@@ -36,15 +36,12 @@ const About = () => {
             About Me
           </span>
           <h2 className="font-display mb-6">
-            <span className="block text-2xl md:text-3xl font-normal text-gray-600 mb-2">
-              Creating
-            </span>
             <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 animate-pulse-shadow">
-              Digital Magic
+              Muskan Bhat
             </span>
           </h2>
           <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
-            I'm a designer <span className="text-xl md:text-2xl font-display font-semibold text-accent">passionate</span> about creating elegant, user-centered
+            I'm a designer <span className="text-xl md:text-2xl font-display font-semibold text-sage-600">passionate</span> about creating elegant, user-centered
             digital experiences that blend aesthetics with functionality.
           </p>
           <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
@@ -54,16 +51,10 @@ const About = () => {
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-accent to-primary-500 bg-clip-text text-transparent mb-2">
-                50+
-              </div>
-              <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-sage-400 to-sage-500 bg-clip-text text-transparent mb-2">
-                5+
+          <div className="flex justify-center">
+            <div className="text-center">
+              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-sage-400 to-sage-500 bg-clip-text text-transparent mb-4 leading-tight pb-2">
+                4+
               </div>
               <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">Years Experience</div>
             </div>
