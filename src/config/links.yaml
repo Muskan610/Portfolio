@@ -42,7 +42,7 @@ external:
   # Example:
   # resume_pdf: "/path/to/resume.pdf"
   # portfolio_pdf: "/path/to/portfolio.pdf"
-  cv_pdf: "/documents/Muskan Bhat CV - Mar2026.pdf"
+  cv_pdf: "/Portfolio/documents/Muskan Bhat CV - Mar2026.pdf"
 
 # Footer
 footer:
