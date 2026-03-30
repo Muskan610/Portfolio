@@ -11,7 +11,7 @@ export default {
           50: '#FFF5F5',
           100: '#FFE5E5',
           200: '#FFC5C5',
-          300: '#FFB6B6',
+          300: '#F88379',
           400: '#FFAA9D',
           500: '#FF9D8F',
         },
@@ -27,7 +27,7 @@ export default {
         },
         cream: '#FAF5F0',
         ivory: '#FFF5EE',
-        accent: '#FFB6B6',
+        accent: '#F88379',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -70,10 +70,10 @@ export default {
         },
         pulseShadow: {
           '0%, 100%': {
-            textShadow: '0 0 20px rgba(255, 182, 182, 0.4)',
+            textShadow: '0 0 20px rgba(248, 131, 121, 0.4)',
           },
           '50%': {
-            textShadow: '0 0 40px rgba(255, 182, 182, 0.8), 0 0 60px rgba(255, 182, 182, 0.4)',
+            textShadow: '0 0 40px rgba(248, 131, 121, 0.8), 0 0 60px rgba(248, 131, 121, 0.4)',
           },
         },
       },

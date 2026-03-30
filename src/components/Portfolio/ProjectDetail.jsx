@@ -93,7 +93,7 @@ const ProjectDetail = ({ project, onClose }) => {
           <span className="text-xs md:text-sm uppercase tracking-widest text-accent font-semibold mb-4 block">
             {project.category}
           </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent mb-6 leading-tight pb-2">
             {project.title}
           </h1>
           {project.subtitle && (
