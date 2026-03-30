@@ -5,7 +5,7 @@ export const portfolioItems = [
     subtitle: 'Designing for PhD Work-Life Harmony',
     category: 'UX Research & Product Design',
     description: 'AI-powered check-in app supporting PhD work-life balance through voice interaction, emotional tracking, and burnout detection.',
-    image: '/Portfolio/images/portfolio/main_banner.png',
+    image: '/Portfolio/images/portfolio/phd-work-life-balance/main_banner.png',
     tags: ['UX Research', 'AI/ML', 'Voice Interface', 'Mental Health'],
     url: '/projects/phd-work-life-balance',
 
@@ -144,31 +144,31 @@ export const portfolioItems = [
           id: 1,
           title: 'Dr. Check-in Overview',
           description: 'Complete interface design and user experience overview',
-          image: '/Portfolio/images/portfolio/main_banner.png'
+          image: '/Portfolio/images/portfolio/phd-work-life-balance/main_banner.png'
         },
         {
           id: 2,
           title: 'Design System',
           description: 'Color palette and visual design language',
-          image: '/Portfolio/images/portfolio/colour_pallette.png'
+          image: '/Portfolio/images/portfolio/phd-work-life-balance/colour_pallette.png'
         },
         {
           id: 3,
           title: 'User Flow',
           description: 'Interaction flow and user journey',
-          image: '/Portfolio/images/portfolio/user_flow.png'
+          image: '/Portfolio/images/portfolio/phd-work-life-balance/user_flow.png'
         },
         {
           id: 4,
           title: 'Design Intent',
           description: 'Core design principles and user-centered approach',
-          image: '/Portfolio/images/portfolio/intent.png'
+          image: '/Portfolio/images/portfolio/phd-work-life-balance/intent.png'
         },
         {
           id: 5,
           title: 'LLM Logic',
           description: 'AI processing and data extraction system',
-          image: '/Portfolio/images/portfolio/llm_logic.png'
+          image: '/Portfolio/images/portfolio/phd-work-life-balance/llm_logic.png'
         }
       ],
 
@@ -181,6 +181,114 @@ export const portfolioItems = [
       ]
     }
   },
+  {
+    id: 2,
+    title: 'West-Kruiskade Tour Guide App',
+    subtitle: 'Designing a Mobile Experience for Cultural Discovery',
+    category: 'UX/UI Design',
+    description: 'Mobile tour guide app helping visitors explore the street art, history, and local businesses of West-Kruiskade through location-based storytelling.',
+    image: '/Portfolio/images/portfolio/west-kruiskade/cover.png',
+    tags: ['UX/UI Design', 'Mobile App', 'Location-Based', 'Cultural Heritage'],
+    url: '/projects/west-kruiskade',
+
+    research: {
+      timeline: 'May – December 2021',
+      role: 'UX/UI Designer',
+      institution: 'West-Kruiskade Rotterdam × Inholland University of Applied Sciences',
+
+      introduction: `West-Kruiskade is one of Rotterdam's most multicultural streets, known for its vibrant street art, independent shops, and diverse restaurants. Despite its cultural richness, much of its history and artistic significance is not easily accessible to visitors.
+
+This project explores how a mobile tour guide application can help tourists and locals discover West-Kruiskade through an interactive digital experience. The app combines location-based navigation, historical context, and artist information to transform the street into a self-guided cultural tour.
+
+The goal was to design an intuitive mobile experience that encourages exploration while preserving the unique identity of the neighborhood.`,
+
+      methodology: {
+        approach: 'Client collaboration and on-site research to understand the cultural context and user needs',
+        participants: 'Client stakeholders, local business owners, and potential tourists',
+        period: 'May - December 2021',
+        methods: ['Site Visits', 'Client Workshops', 'User Journey Mapping', 'Interface Design', 'Prototype Development']
+      },
+
+      keyInsights: [
+        {
+          insight: 'Information needs to be accessible outdoors',
+          implication: 'Design for sunlight readability',
+          feature: 'High contrast UI with strong visual hierarchy'
+        },
+        {
+          insight: 'Cultural stories are hidden from visitors',
+          implication: 'Connect physical and digital experiences',
+          feature: 'QR codes and location-based content'
+        },
+        {
+          insight: 'Users want quick information access',
+          implication: 'Minimize interaction steps',
+          feature: 'One-tap access to artwork details'
+        },
+        {
+          insight: 'The street itself is the main attraction',
+          implication: 'UI should not dominate',
+          feature: 'Minimal interface with visual focus on content'
+        },
+        {
+          insight: 'Support both planned and spontaneous exploration',
+          implication: 'Flexible navigation patterns',
+          feature: 'Interactive map with location-aware recommendations'
+        }
+      ],
+
+      figures: [
+        {
+          id: 1,
+          title: 'West-Kruiskade App Overview',
+          description: 'Complete interface design and mobile experience',
+          image: '/Portfolio/images/portfolio/west-kruiskade/cover.png'
+        },
+        {
+          id: 2,
+          title: 'Artwork Story',
+          description: 'Detailed view of street art with artist information and cultural context',
+          image: '/Portfolio/images/portfolio/west-kruiskade/artwork story.png'
+        },
+        {
+          id: 3,
+          title: 'Audio Tour',
+          description: 'Audio-guided tour feature for immersive storytelling',
+          image: '/Portfolio/images/portfolio/west-kruiskade/audio tour.png'
+        },
+        {
+          id: 4,
+          title: 'Explore Streets',
+          description: 'Interactive map showing points of interest throughout West-Kruiskade',
+          image: '/Portfolio/images/portfolio/west-kruiskade/explore streets.png'
+        },
+        {
+          id: 5,
+          title: 'Food, Local & Business',
+          description: 'Discover local restaurants, shops, and independent businesses',
+          image: '/Portfolio/images/portfolio/west-kruiskade/food local and business.png'
+        },
+        {
+          id: 6,
+          title: 'Navigation',
+          description: 'Location-based navigation system for the cultural tour',
+          image: '/Portfolio/images/portfolio/west-kruiskade/navigation.png'
+        },
+        {
+          id: 7,
+          title: 'QR Discovery',
+          description: 'QR code scanning for instant access to artwork information',
+          image: '/Portfolio/images/portfolio/west-kruiskade/QR discovery.png'
+        },
+        {
+          id: 8,
+          title: 'Street Art Museum',
+          description: 'Browse the complete collection of murals and street art',
+          image: '/Portfolio/images/portfolio/west-kruiskade/street art museum.png'
+        }
+      ]
+    }
+  },
 ];
 
 export const categories = [
@@ -188,4 +296,6 @@ export const categories = [
   'UX Research',
   'Product Design',
   'Human-AI Interaction',
+  'UX/UI Design',
+  'Mobile App',
 ];
