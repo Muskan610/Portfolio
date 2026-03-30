@@ -1,16 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import MagneticButton from '../shared/MagneticButton';
 import profilePhoto from '../../assets/images/dp.jpeg';
 
-const HeroContent = () => {
+const HeroContent = ({ isLoaded }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [imageError, setImageError] = useState(false);
   const contentRef = useRef(null);
 
   useEffect(() => {
-    // Trigger animation on mount
-    setTimeout(() => setIsVisible(true), 100);
-  }, []);
+    // Trigger animation when page is loaded
+    if (isLoaded) {
+      setTimeout(() => setIsVisible(true), 200);
+    }
+  }, [isLoaded]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -103,6 +106,10 @@ const HeroContent = () => {
       </div>
     </div>
   );
+};
+
+HeroContent.propTypes = {
+  isLoaded: PropTypes.bool.isRequired,
 };
 
 export default HeroContent;

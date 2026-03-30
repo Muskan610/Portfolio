@@ -18,7 +18,7 @@ function App() {
         className={`min-h-screen transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
       >
-        <Hero />
+        <Hero isLoaded={isLoaded} />
         <Portfolio />
         <Contact />
       </main>

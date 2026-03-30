@@ -1,9 +1,10 @@
 import { useRef } from 'react';
+import PropTypes from 'prop-types';
 import ParallaxElement from './ParallaxElement';
 import HeroContent from './HeroContent';
 import SpotlightCursor from './SpotlightCursor';
 
-const Hero = () => {
+const Hero = ({ isLoaded }) => {
   const heroRef = useRef(null);
 
   return (
@@ -57,7 +58,7 @@ const Hero = () => {
       </ParallaxElement>
 
       {/* Hero Content */}
-      <HeroContent />
+      <HeroContent isLoaded={isLoaded} />
 
       {/* Bottom gradient transition to white */}
       <div
@@ -68,6 +69,10 @@ const Hero = () => {
       />
     </section>
   );
+};
+
+Hero.propTypes = {
+  isLoaded: PropTypes.bool.isRequired,
 };
 
 export default Hero;
