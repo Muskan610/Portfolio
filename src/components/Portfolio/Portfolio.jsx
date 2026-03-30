@@ -13,6 +13,18 @@ const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
 
+  // Check URL hash on mount to open project if hash exists
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#project-')) {
+      const projectId = parseInt(hash.replace('#project-', ''), 10);
+      const project = portfolioItems.find(item => item.id === projectId);
+      if (project) {
+        setSelectedProject(project);
+      }
+    }
+  }, []); // Run only once on mount
+
   // Consolidated scroll and popstate effect
   useEffect(() => {
     // Prevent scroll when loading and compensate for scrollbar
