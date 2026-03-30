@@ -2,7 +2,7 @@
 
 # Contact Information
 contact:
-  email: mbhat2442@gmail.com
+  email: withlovemuskan@gmail.com
 
 # Social Media Links
 social:
@@ -10,6 +10,10 @@ social:
     url: "https://www.linkedin.com/in/muskan-bhat/"
     label: "LinkedIn"
     icon: "linkedin"
+  behance:
+    url: "https://www.behance.net/muskanbhat"
+    label: "Behance"
+    icon: "behance"
 
 # Project URLs
 projects:
@@ -38,6 +42,7 @@ external:
   # Example:
   # resume_pdf: "/path/to/resume.pdf"
   # portfolio_pdf: "/path/to/portfolio.pdf"
+  cv_pdf: "/documents/Muskan Bhat CV - Mar2026.pdf"
 
 # Footer
 footer:
