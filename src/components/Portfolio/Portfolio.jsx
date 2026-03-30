@@ -75,9 +75,9 @@ const Portfolio = () => {
       <Section id="portfolio" background="default" className="relative">
         {/* Bottom gradient transition to cream */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none -mb-24"
+          className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none -mb-32"
           style={{
-            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 25%, rgba(250, 245, 240, 0.6) 50%, rgba(250, 245, 240, 0.8) 80%, rgba(250, 245, 240, 1) 100%)'
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(250, 245, 240, 0.1) 20%, rgba(250, 245, 240, 0.3) 40%, rgba(250, 245, 240, 0.5) 60%, rgba(250, 245, 240, 0.7) 80%, rgba(250, 245, 240, 1) 100%)'
           }}
         />
 

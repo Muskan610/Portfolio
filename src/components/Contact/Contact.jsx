@@ -7,15 +7,7 @@ const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <Section id="contact" background="default" className="relative">
-      {/* Top gradient transition from cream to white */}
-      <div
-        className="absolute top-0 left-0 right-0 h-24 pointer-events-none -mt-20"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(250, 245, 240, 1) 0%, rgba(250, 245, 240, 0.5) 50%, transparent 100%)'
-        }}
-      />
-
+    <Section id="contact" background="cream" className="relative">
       <div ref={ref} className="max-w-4xl mx-auto text-center">
         <h2
           className={`text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6 transition-all duration-1000 ${

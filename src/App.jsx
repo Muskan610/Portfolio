@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Hero from './components/Hero/Hero'
-import About from './components/About/About'
 import Portfolio from './components/Portfolio/Portfolio'
 import Contact from './components/Contact/Contact'
 import PageLoader from './components/shared/PageLoader'
@@ -21,7 +20,6 @@ function App() {
       >
         <Hero />
         <Portfolio />
-        <About />
         <Contact />
       </main>
     </>
