@@ -16,9 +16,13 @@ const Portfolio = () => {
   // Check URL hash on mount to open project if hash exists
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash.startsWith('#project-')) {
-      const projectId = parseInt(hash.replace('#project-', ''), 10);
-      const project = portfolioItems.find(item => item.id === projectId);
+    if (hash.startsWith('#')) {
+      const slug = hash.slice(1); // Remove the # symbol
+      const project = portfolioItems.find(item => {
+        // Extract slug from URL (e.g., '/projects/phd-work-life-balance' -> 'phd-work-life-balance')
+        const projectSlug = item.url.split('/').pop();
+        return projectSlug === slug;
+      });
       if (project) {
         setSelectedProject(project);
       }
@@ -59,7 +63,9 @@ const Portfolio = () => {
     // Start showing project while loading screen still visible
     setTimeout(() => {
       setSelectedProject(project);
-      window.history.pushState({ modal: true }, '', `#project-${project.id}`);
+      // Extract slug from URL (e.g., '/projects/phd-work-life-balance' -> 'phd-work-life-balance')
+      const projectSlug = project.url.split('/').pop();
+      window.history.pushState({ modal: true }, '', `#${projectSlug}`);
     }, 800);
 
     // Begin fading out spinner
@@ -75,7 +81,7 @@ const Portfolio = () => {
 
   // Close project and handle history
   const handleCloseProject = useCallback(() => {
-    if (window.location.hash.startsWith('#project-')) {
+    if (window.location.hash.startsWith('#')) {
       window.history.back();
     } else {
       setSelectedProject(null);
