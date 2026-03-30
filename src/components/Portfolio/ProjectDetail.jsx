@@ -66,12 +66,12 @@ const ProjectDetail = ({ project, onClose }) => {
       <button
         type="button"
         onClick={handleClose}
-        className="fixed top-8 left-8 z-[100] px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500 flex items-center gap-2 pointer-events-auto"
+        className="fixed top-4 sm:top-8 left-4 sm:left-8 z-[100] px-4 sm:px-6 py-2 sm:py-3 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500 flex items-center gap-2 pointer-events-auto text-sm sm:text-base"
         aria-label="Go back to Portfolio"
         style={{ cursor: 'pointer' }}
       >
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -83,25 +83,25 @@ const ProjectDetail = ({ project, onClose }) => {
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        <span>Go back to Portfolio</span>
+        <span className="hidden sm:inline">Go back to Portfolio</span>
       </button>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-24">
         {/* Header */}
         <div className="mb-12 animate-fade-in">
-          <span className="text-xs md:text-sm uppercase tracking-widest text-accent font-semibold mb-4 block">
+          <span className="text-xs sm:text-sm uppercase tracking-widest text-accent font-semibold mb-4 block">
             {project.category}
           </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent mb-6 leading-tight pb-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent mb-6 leading-tight pb-2">
             {project.title}
           </h1>
           {project.subtitle && (
-            <h2 className="text-3xl md:text-4xl font-display font-semibold text-gray-700 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-gray-700 mb-6">
               {project.subtitle}
             </h2>
           )}
-          <p className="text-base md:text-lg text-gray-600 max-w-5xl">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-5xl">
             {project.description}
           </p>
         </div>
@@ -109,20 +109,20 @@ const ProjectDetail = ({ project, onClose }) => {
         {hasResearch ? (
           <>
             {/* Project Details Grid */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Timeline
                 </h3>
                 <p className="text-gray-600">{project.research.timeline}</p>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Role
                 </h3>
                 <p className="text-gray-600">{project.research.role}</p>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Client
                 </h3>
@@ -131,8 +131,8 @@ const ProjectDetail = ({ project, onClose }) => {
             </div>
 
             {/* Introduction */}
-            <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+            <div className="mb-16 bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
                 Introduction
               </h2>
               <div className="prose prose-lg max-w-none">
@@ -147,17 +147,17 @@ const ProjectDetail = ({ project, onClose }) => {
             {/* Figures/Visualizations */}
             {project.research.figures && project.research.figures.length > 0 && (
               <div className="mb-16">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
                   Research Visualizations
                 </h2>
                 <div className="space-y-12">
                   {project.research.figures.map((figure) => (
-                    <div key={figure.id} className="bg-white p-8 rounded-2xl shadow-sm">
-                      <h3 className="text-2xl font-display font-bold text-gray-900 mb-3">
+                    <div key={figure.id} className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
+                      <h3 className="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-3">
                         {figure.title}
                       </h3>
                       <p className="text-gray-600 mb-6">{figure.description}</p>
-                      <div className="rounded-xl overflow-hidden bg-gray-50 p-4">
+                      <div className="rounded-xl overflow-hidden bg-gray-50 p-3 sm:p-4">
                         <img
                           src={figure.image}
                           alt={figure.title}
@@ -171,30 +171,30 @@ const ProjectDetail = ({ project, onClose }) => {
             )}
 
             {/* Research Methodology */}
-            <div className="mb-16 bg-gradient-to-br from-sage-50 to-primary-50 p-8 md:p-12 rounded-2xl shadow-sm">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+            <div className="mb-16 bg-gradient-to-br from-sage-50 to-primary-50 p-6 sm:p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
                 Research Methodology
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base sm:text-lg text-gray-700 mb-6">
                 {project.research.methodology.approach}
               </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-xl">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-white p-4 sm:p-6 rounded-xl">
                   <h4 className="font-display font-bold text-gray-900 mb-2">Participants</h4>
                   <p className="text-gray-600">{project.research.methodology.participants}</p>
                 </div>
-                <div className="bg-white p-6 rounded-xl">
+                <div className="bg-white p-4 sm:p-6 rounded-xl">
                   <h4 className="font-display font-bold text-gray-900 mb-2">Period</h4>
                   <p className="text-gray-600">{project.research.methodology.period}</p>
                 </div>
               </div>
-              <div className="mt-6 bg-white p-6 rounded-xl">
+              <div className="mt-6 bg-white p-4 sm:p-6 rounded-xl">
                 <h4 className="font-display font-bold text-gray-900 mb-3">Methods Used</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.research.methodology.methods.map((method, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-sage-100 text-sage-800 rounded-full text-sm font-medium"
+                      className="px-2 py-1 text-xs sm:px-3 sm:text-sm bg-sage-100 text-sage-800 rounded-full font-medium"
                     >
                       {method}
                     </span>
@@ -204,14 +204,14 @@ const ProjectDetail = ({ project, onClose }) => {
             </div>
 
             {/* Key Insights */}
-            <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+            <div className="mb-16 bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
                 Key Insights & Design Implications
               </h2>
               <div className="space-y-6">
                 {project.research.keyInsights.map((insight, index) => (
-                  <div key={index} className="border-l-4 border-accent pl-6 py-2">
-                    <h4 className="font-display font-bold text-lg text-gray-900 mb-2">
+                  <div key={index} className="border-l-3 sm:border-l-4 border-accent pl-4 sm:pl-6 py-2">
+                    <h4 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-2">
                       {insight.insight}
                     </h4>
                     <p className="text-gray-600 mb-2">
@@ -227,17 +227,17 @@ const ProjectDetail = ({ project, onClose }) => {
 
             {/* Usability Testing */}
             {project.research.usabilityTesting && (
-              <div className="mb-16 bg-white p-8 md:p-12 rounded-2xl shadow-sm">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
+              <div className="mb-16 bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-sm">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
                   Usability Testing
                 </h2>
-                <p className="text-lg text-gray-700 mb-6">
+                <p className="text-base sm:text-lg text-gray-700 mb-6">
                   {project.research.usabilityTesting.summary}
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
                   <div>
-                    <h3 className="text-xl font-display font-bold text-green-700 mb-4">
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-green-700 mb-4">
                       What Worked Well
                     </h3>
                     <ul className="space-y-2">
@@ -251,7 +251,7 @@ const ProjectDetail = ({ project, onClose }) => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-display font-bold text-sage-700 mb-4">
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-sage-700 mb-4">
                       Feedback & Improvements
                     </h3>
                     <ul className="space-y-2">
@@ -270,14 +270,14 @@ const ProjectDetail = ({ project, onClose }) => {
             {/* Participant Quotes */}
             {project.research.quotes && project.research.quotes.length > 0 && (
               <div className="mb-16">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gray-900 mb-8">
                   Voices from the Research
                 </h2>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                   {project.research.quotes.map((quote, index) => (
                     <div
                       key={index}
-                      className="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-accent"
+                      className="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border-l-3 sm:border-l-4 border-accent"
                     >
                       <p className="text-gray-700 italic leading-relaxed">
                         {quote}
@@ -291,20 +291,20 @@ const ProjectDetail = ({ project, onClose }) => {
         ) : (
           <>
             {/* Generic project layout for non-research projects */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Timeline
                 </h3>
                 <p className="text-gray-600">3-4 weeks</p>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Role
                 </h3>
                 <p className="text-gray-600">Lead Designer</p>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-sm">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm">
                 <h3 className="text-lg font-display font-bold text-gray-900 mb-2">
                   Year
                 </h3>

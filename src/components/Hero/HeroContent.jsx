@@ -23,8 +23,8 @@ const HeroContent = ({ isLoaded }) => {
   };
 
   return (
-    <div ref={contentRef} className="relative z-10 px-4 w-full max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div ref={contentRef} className="relative z-10 px-4 py-20 sm:py-24 md:py-28 w-full max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
         {/* Content */}
         <div
           className={`transition-all duration-1000 ${
@@ -35,7 +35,7 @@ const HeroContent = ({ isLoaded }) => {
             UX Portfolio
           </span>
           <h2 className="font-display mb-6">
-            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-[#d90166] to-sage-500 bg-clip-text text-transparent bg-200% animate-gradient-shift">
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-[#d90166] to-sage-500 bg-clip-text text-transparent bg-200% animate-gradient-shift">
               Hi I'm Muskan!
             </span>
           </h2>
@@ -52,7 +52,7 @@ const HeroContent = ({ isLoaded }) => {
           {/* Stats */}
           <div className="flex justify-center mb-8">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-sage-400 to-sage-500 bg-clip-text text-transparent mb-4 leading-tight pb-2">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-sage-400 to-sage-500 bg-clip-text text-transparent mb-4 leading-tight pb-2">
                 4+
               </div>
               <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">Years Experience</div>
@@ -73,7 +73,7 @@ const HeroContent = ({ isLoaded }) => {
             </MagneticButton>
             <button
               onClick={() => scrollToSection('contact')}
-              className="px-10 py-5 bg-transparent border-2 border-sage-600 text-sage-700 text-xl font-semibold rounded-full transition-all duration-300 hover:bg-sage-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500"
+              className="px-6 sm:px-10 py-4 sm:py-5 bg-transparent border-2 border-sage-600 text-sage-700 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 hover:bg-sage-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500"
             >
               Get in Touch
             </button>

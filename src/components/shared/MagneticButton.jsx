@@ -21,7 +21,7 @@ const MagneticButton = ({
     >
       <button
         onClick={onClick}
-        className={`px-10 py-5 bg-sage-600 hover:bg-sage-700 text-white text-xl font-semibold rounded-full transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500 ${className}`}
+        className={`px-6 sm:px-10 py-4 sm:py-5 bg-sage-600 hover:bg-sage-700 text-white text-base sm:text-xl font-semibold rounded-full transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sage-500 ${className}`}
         {...props}
       >
         {children}

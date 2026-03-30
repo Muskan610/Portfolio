@@ -10,7 +10,7 @@ const Hero = ({ isLoaded }) => {
   return (
     <section
       ref={heroRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream via-ivory to-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream via-ivory to-white"
     >
       {/* Spotlight effect */}
       <SpotlightCursor heroRef={heroRef} />
@@ -20,7 +20,7 @@ const Hero = ({ isLoaded }) => {
       {/* Large soft pink circle - background */}
       <ParallaxElement
         strength={10}
-        className="top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 -translate-x-1/2 -translate-y-1/2"
+        className="top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="w-full h-full rounded-full bg-primary-200 opacity-30 blur-3xl" />
       </ParallaxElement>
@@ -28,7 +28,7 @@ const Hero = ({ isLoaded }) => {
       {/* Medium coral circle - mid layer */}
       <ParallaxElement
         strength={20}
-        className="top-1/3 right-1/4 w-48 h-48 md:w-72 md:h-72 translate-x-1/2"
+        className="top-1/3 right-1/4 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 translate-x-1/2"
       >
         <div className="w-full h-full rounded-full bg-primary-400 opacity-25 blur-2xl" />
       </ParallaxElement>
@@ -36,7 +36,7 @@ const Hero = ({ isLoaded }) => {
       {/* Sage green circle - mid layer */}
       <ParallaxElement
         strength={15}
-        className="bottom-1/3 left-1/3 w-56 h-56 md:w-80 md:h-80 -translate-x-1/2"
+        className="bottom-1/3 left-1/3 w-44 h-44 sm:w-64 sm:h-64 md:w-80 md:h-80 -translate-x-1/2"
       >
         <div className="w-full h-full rounded-full bg-sage-300 opacity-35 blur-2xl" />
       </ParallaxElement>
@@ -44,7 +44,7 @@ const Hero = ({ isLoaded }) => {
       {/* Small accent circle - foreground */}
       <ParallaxElement
         strength={30}
-        className="top-2/3 right-1/3 w-32 h-32 md:w-48 md:h-48"
+        className="top-2/3 right-1/3 w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48"
       >
         <div className="w-full h-full rounded-full bg-accent opacity-20 blur-xl" />
       </ParallaxElement>
@@ -52,7 +52,7 @@ const Hero = ({ isLoaded }) => {
       {/* Soft rounded rectangle - background */}
       <ParallaxElement
         strength={12}
-        className="bottom-1/4 right-1/4 w-40 h-40 md:w-64 md:h-64"
+        className="bottom-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64"
       >
         <div className="w-full h-full rounded-3xl bg-primary-300 opacity-25 blur-2xl rotate-45" />
       </ParallaxElement>

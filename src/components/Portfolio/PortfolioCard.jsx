@@ -41,14 +41,14 @@ const PortfolioCard = ({ title, category, description, image, onClick }) => {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-          <span className="text-accent text-sm font-semibold mb-2">
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 sm:p-6">
+          <span className="text-accent text-xs sm:text-sm font-semibold mb-2">
             {category}
           </span>
-          <h3 className="text-white text-xl font-display font-semibold mb-2">
+          <h3 className="text-white text-lg sm:text-xl font-display font-semibold mb-2">
             {title}
           </h3>
-          <p className="text-gray-200 text-sm mb-3">{description}</p>
+          <p className="text-gray-200 text-xs sm:text-sm mb-3">{description}</p>
         </div>
       </div>
     </Card>

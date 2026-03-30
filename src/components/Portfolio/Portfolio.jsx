@@ -108,7 +108,7 @@ const Portfolio = () => {
             Selected Work
           </span>
           <h2
-            className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent bg-200% animate-gradient-shift mb-4 transition-all duration-1000 ${
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-r from-gray-900 via-accent to-sage-500 bg-clip-text text-transparent bg-200% animate-gradient-shift mb-4 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '100ms' }}
@@ -116,7 +116,7 @@ const Portfolio = () => {
             Portfolio
           </h2>
           <p
-            className={`text-base md:text-lg text-gray-600 max-w-2xl mx-auto transition-all duration-1000 ${
+            className={`text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '200ms' }}
