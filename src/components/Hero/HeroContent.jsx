@@ -29,21 +29,21 @@ const HeroContent = () => {
           }`}
         >
           <span className="text-xs md:text-sm uppercase tracking-widest text-accent font-semibold mb-4 block">
-            About Me
+            UX Portfolio
           </span>
           <h2 className="font-display mb-6">
-            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 animate-pulse-shadow">
-              Muskan Bhat
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-[#d90166] to-sage-500 bg-clip-text text-transparent bg-200% animate-gradient-shift">
+              Hi I'm Muskan!
             </span>
           </h2>
-          <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
-            I'm a designer <span className="text-xl md:text-2xl font-display font-semibold text-sage-600">passionate</span> about creating elegant, user-centered
-            digital experiences that blend aesthetics with functionality.
+          <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+            I'm a UX Designer based in the Netherlands, focused on creating elegant, user-centered digital experiences that feel simple and intuitive.
           </p>
           <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
-            With a <span className="text-lg md:text-xl font-bold text-gray-800">keen eye for detail</span> and a love for beautiful design, I help
-            brands tell their unique stories through thoughtful visual
-            communication.
+            I enjoy turning complex systems into clear, usable products, combining a background in front-end development with a strong eye for detail.
+          </p>
+          <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+            I have a foundation in Information Technology and Data-Driven Design, and I'm fluent in English and Dutch.
           </p>
 
           {/* Stats */}
