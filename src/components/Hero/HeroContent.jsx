@@ -52,8 +52,8 @@ const HeroContent = ({ isLoaded }) => {
           {/* Stats */}
           <div className="flex justify-center mb-8">
             <div className="text-center">
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold bg-gradient-to-br from-sage-400 to-sage-500 bg-clip-text text-transparent mb-4 leading-tight pb-2">
-                4+
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-sage-600 mb-4 leading-tight pb-2">
+                3+
               </div>
               <div className="text-sm md:text-base text-gray-600 uppercase tracking-wide">Years Experience</div>
             </div>
